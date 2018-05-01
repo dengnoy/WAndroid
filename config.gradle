@@ -1,0 +1,13 @@
+ext{
+    dependcies=[
+            "circleimageview"     : "de.hdodenhof:circleimageview:2.2.0",
+            'recyclerviewadapter' :  'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30',
+            "retrofit2"           : "com.squareup.retrofit2:retrofit:2.1.0",                                                 //★     retrofit2  网络请求库
+            "converter-scalars"   : "com.squareup.retrofit2:converter-scalars:2.1.0",
+            "converter-gson"      : "com.squareup.retrofit2:converter-gson:2.1.0",                            //★    Gson转换
+            "adapter-rxjava2"     : "com.squareup.retrofit2:adapter-rxjava2:2.2.0"                       //★    call转obseverble,配合rxjava
+
+
+    ]
+
+}

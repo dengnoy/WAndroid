@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_menu_fav"
+        android:icon="@drawable/favorite"
+        android:title="收藏" />
+    <item
+        android:icon="@drawable/about"
+        android:id="@+id/main_menu_about"
+        
+        android:title="关于" />
+    <item
+        android:icon="@drawable/exit"
+        android:id="@+id/main_menu_exit"
+
+        android:title="退出" />
+</menu>
