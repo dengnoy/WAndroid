@@ -88,6 +88,8 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:padding="6dp"
+                android:tint="#ff0000"
+                android:tintMode="src_atop"
                 android:src="@drawable/heart"
 
                 />

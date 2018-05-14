@@ -3,10 +3,18 @@ package example.hp.wandroid.model.helper;
 import java.util.List;
 
 import example.hp.wandroid.base.BaseView;
+import example.hp.wandroid.bean.ResponseData;
+import example.hp.wandroid.bean.UserData;
+import example.hp.wandroid.net.WAndroidApi;
 import example.hp.wandroid.ui.main.Contract;
+import io.reactivex.Observable;
 
 public interface NetHelper {
     public void loadFromNet(BaseView view);
+
+    Observable<ResponseData<UserData>> login(String userName, String passWord);  //登录
+
+    Observable<ResponseData<UserData>>  regist(String userName, String passWord);  //注册用户
 
 }
 

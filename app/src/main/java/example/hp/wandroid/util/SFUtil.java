@@ -2,6 +2,9 @@ package example.hp.wandroid.util;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.text.TextUtils;
+
+import java.util.HashMap;
 
 import example.hp.wandroid.MyApp;
 import example.hp.wandroid.constant.Constant;
@@ -36,5 +39,6 @@ public class SFUtil {
 
     public void putBoolean(String key, boolean content) {
         mSF.edit().putBoolean(key, content).commit();
+
     }
 }

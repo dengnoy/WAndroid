@@ -13,7 +13,7 @@ public class Util {
 
     public static void shortToast(String s) {
         if (sContext != null) {
-            //   Toast.makeText(sContext, s, Toast.LENGTH_SHORT).show();
+              Toast.makeText(sContext, s, Toast.LENGTH_SHORT).show();
             //  Log.d(TAG, "toast invoked");
         }
     }

@@ -24,7 +24,7 @@ import example.hp.wandroid.base.BaseActivityWithMvp;
 import example.hp.wandroid.model.DataManager;
 import example.hp.wandroid.ui.AboutActivity;
 import example.hp.wandroid.ui.fav.FavActivity;
-import example.hp.wandroid.ui.LoginActivity;
+import example.hp.wandroid.ui.login.LoginActivity;
 import example.hp.wandroid.ui.main.MainFragment;
 import example.hp.wandroid.ui.two.TwoFragment;
 import example.hp.wandroid.util.Util;
@@ -55,9 +55,8 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
 
         mDrawer = findViewById(R.id.main_drawer);
         mToolBarTV = findViewById(R.id.toolbar_tv);
-
-
         mNavView = findViewById(R.id.nav_view);
+
         mNavView.setCheckedItem(R.id.main_menu_home);
         mNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -76,7 +75,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
 
                         break;
                     case R.id.main_menu_about:
-                        Util.shortToast("关于");
+
                         AboutActivity.startIt(MainActivity.this);
 
                         break;
@@ -96,19 +95,20 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
                 return true;
             }
         });
+        mExitItem = mNavView.getMenu().getItem(3);  //获取退出按钮
         mBottomNav = findViewById(R.id.main_bottom_nav);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Util.shortToast("你点了底部导航栏");
+                ;
                 switch (item.getItemId()) {
                     case R.id.main_menu_bottom_home:
                         switchFragment(1);
-                        Util.shortToast("首页");
+
                         break;
                     case R.id.main_menu_bottom_knowledge:
                         switchFragment(2);
-                        Util.shortToast("知识体系");
+
                         break;
                 }
                 return true;
@@ -116,6 +116,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
         });
         mIVHead = mNavView.getHeaderView(0).findViewById(R.id.iv_user_header);
         mTVNav = mNavView.getHeaderView(0).findViewById(R.id.tv_user_info);
+
         if (mTVNav != null)
             mTVNav.setOnClickListener(this);
 

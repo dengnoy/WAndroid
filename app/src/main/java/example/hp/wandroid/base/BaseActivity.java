@@ -11,7 +11,7 @@ import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import example.hp.wandroid.R;
-import example.hp.wandroid.ui.LoginActivity;
+import example.hp.wandroid.ui.login.LoginActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
