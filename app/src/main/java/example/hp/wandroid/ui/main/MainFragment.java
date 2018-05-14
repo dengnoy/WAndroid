@@ -25,10 +25,12 @@ import java.util.List;
 import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.HomeAdapter;
 import example.hp.wandroid.base.BaseFragment;
+import example.hp.wandroid.bean.Article;
 import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.ui.WebActivity;
 import example.hp.wandroid.util.ImageLoader;
 import example.hp.wandroid.util.Mock;
+import example.hp.wandroid.util.Util;
 
 public class MainFragment extends BaseFragment<HomePresenter> implements Contract.HomeView {
     public RecyclerView mRecyclerView;
@@ -86,7 +88,16 @@ public class MainFragment extends BaseFragment<HomePresenter> implements Contrac
         mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                WebActivity.openUrl(getActivity(), ((ArticleList.Article) adapter.getItem(position)).getLink());
+                WebActivity.openUrl(getActivity(), ((Article) adapter.getItem(position)).getLink());
+            }
+        });
+        mAdapter.setOnItemLongClickListener(new BaseQuickAdapter.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
+                Article item = (Article) adapter.getItem(position);//TODO  不合理
+                item.save();
+                Util.shortToast("已收藏");
+                return true;
             }
         });
         mPresenter.getBanner();

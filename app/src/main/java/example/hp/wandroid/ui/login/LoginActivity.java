@@ -1,4 +1,4 @@
-package example.hp.wandroid.ui;
+package example.hp.wandroid.ui.login;
 
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -6,7 +6,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import butterknife.BindView;
-import example.hp.wandroid.MainActivity;
 import example.hp.wandroid.R;
 import example.hp.wandroid.base.BaseActivity;
 import example.hp.wandroid.model.DataManager;
