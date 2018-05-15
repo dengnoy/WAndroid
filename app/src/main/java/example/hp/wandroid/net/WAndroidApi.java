@@ -4,7 +4,9 @@ import java.util.List;
 
 import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.bean.Banner;
+import example.hp.wandroid.bean.FavArticle;
 import example.hp.wandroid.bean.Hotkey;
+import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
 import retrofit2.http.Field;
@@ -45,14 +47,14 @@ public interface WAndroidApi {
     Observable<ResponseData<List<Hotkey>>> getHotkey();
 
 
-    //体系数据
+    //知识体系数据
     @GET("/tree/json")
-    Observable getTree();
+    Observable<ResponseData<List<KnowledgeHierarchy>>> loadKnowledgeHierarchyDaga();
 
 
-    //体系下的文章\
-    @GET("article/list/0/json?cid={id}")
-    Observable hierarchyArticle(@Path("id") int id);
+    //体系下的文章  从0页开始
+    @GET("/article/list/{page}/json?cid={id}")
+    Observable hierarchyArticle(@Path("page")int page,@Path("id") int id);
 
     // 导航数据
     @GET("/navi/json")
@@ -68,8 +70,8 @@ public interface WAndroidApi {
 
 
     //收藏文章列表
-    @GET("lg/collect/list/{page}/json")
-    Observable getFavArticles(@Path("page") int page);
+    @GET("/lg/collect/list/{page}/json")
+    Observable<ResponseData<FavArticle>> getFavArticles(@Path("page") int page);
 
 
     //收藏站内文章

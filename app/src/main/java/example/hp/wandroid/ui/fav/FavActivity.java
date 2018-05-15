@@ -20,6 +20,7 @@ import example.hp.wandroid.base.BaseActivity;
 import example.hp.wandroid.base.BaseActivityWithMvp;
 import example.hp.wandroid.bean.Article;
 import example.hp.wandroid.bean.ArticleList;
+import example.hp.wandroid.bean.FavArticle;
 import example.hp.wandroid.ui.WebActivity;
 
 public class FavActivity extends BaseActivityWithMvp<FavPresenter> implements Contract.FavView {
@@ -28,6 +29,7 @@ public class FavActivity extends BaseActivityWithMvp<FavPresenter> implements Co
     private TextView mToolbarTitle;
     private RecyclerView mRecyclerViewFav; //收藏展示列表
     private BaseQuickAdapter mAdapter;
+    private int curPage;  //第几页
 
 
     public static void startIt(Context context) {
@@ -51,22 +53,15 @@ public class FavActivity extends BaseActivityWithMvp<FavPresenter> implements Co
 
         mRecyclerViewFav = findViewById(R.id.fav_recyclerview);
         mRecyclerViewFav.setLayoutManager(new LinearLayoutManager(this));
-        mAdapter = new FavAdapter(R.layout.item_home_articlelist, null);
+        mAdapter = new FavAdapter(null);
         mRecyclerViewFav.setAdapter(mAdapter);
         mPresenter = new FavPresenter();
 
-        setListener();
+
 
     }
 
-    private void setListener() {
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                WebActivity.openUrl(FavActivity.this, ((Article) adapter.getItem(position)).getLink());
-            }
-        });
-    }
+
 
     @Override
     protected void customToolBar(Toolbar mToolBar) {
@@ -75,12 +70,14 @@ public class FavActivity extends BaseActivityWithMvp<FavPresenter> implements Co
 
     private void loadFavArticles() {
         if (mPresenter != null)
-            mPresenter.getFavArticles();
+            mPresenter.getFavArticles(0);  //一开始加载第一页
 
     }
 
     @Override
-    public void updateFavArticles(List<Article> datas) {
+    public void updateFavArticles(List<FavArticle.ArticleInfo> datas) {
         mAdapter.addData(datas);
     }
+
+
 }

@@ -1,16 +1,11 @@
 package example.hp.wandroid.net;
 
-import android.media.MediaMetadataRetriever;
-
-import com.google.gson.Gson;
-
-import com.google.gson.GsonBuilder;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import java.util.Observable;
 import java.util.concurrent.TimeUnit;
 
 import example.hp.wandroid.constant.ApiConstant;
+import example.hp.wandroid.net.cookie.CookieManager;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 
@@ -35,7 +30,7 @@ public class RetrofitManager {
         // Gson gson= new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 
         mOkHttpClient = new OkHttpClient.Builder()
-                .cookieJar(new CookieJar())
+                .cookieJar(new CookieManager())
                 .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
                 .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
                 .build();

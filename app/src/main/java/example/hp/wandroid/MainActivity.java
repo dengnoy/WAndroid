@@ -26,7 +26,7 @@ import example.hp.wandroid.ui.AboutActivity;
 import example.hp.wandroid.ui.fav.FavActivity;
 import example.hp.wandroid.ui.login.LoginActivity;
 import example.hp.wandroid.ui.main.MainFragment;
-import example.hp.wandroid.ui.two.TwoFragment;
+import example.hp.wandroid.ui.knowledgehierarchy.KnowledgeHierarchyFragment;
 import example.hp.wandroid.util.Util;
 
 public class MainActivity extends BaseActivityWithMvp implements View.OnClickListener {
@@ -155,7 +155,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
     private void initFragments() {
         mFragments = new Fragment[2];
         mFragments[0] = new MainFragment();
-        mFragments[1] = new TwoFragment();
+        mFragments[1] = new KnowledgeHierarchyFragment();
 
         switchFragment(1);
     }

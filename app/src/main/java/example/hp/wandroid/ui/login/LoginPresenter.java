@@ -11,13 +11,14 @@ public class LoginPresenter extends Contract.LoginPresenter<Contract.LoginView> 
     @Override
     boolean login(String userName, String password) {
         DataManager.getInstance().login(userName, password)
-                .compose(RxSchedulers.<ResponseData<UserData>>applySchedulers())
+
                 .subscribe(new Consumer<ResponseData<UserData>>() {
                     @Override
                     public void accept(ResponseData<UserData> userDataResponseData) throws Exception {
                         if (userDataResponseData.getErrorCode() == 0)
                             mView.notifyLogined(userDataResponseData.getData());
-                        Util.shortToast("用户名或密码错误");
+                        else Util.shortToast("登录错误");
+
                     }
                 });
 
@@ -28,7 +29,7 @@ public class LoginPresenter extends Contract.LoginPresenter<Contract.LoginView> 
     @Override
     boolean regist(String userName, String password) {
         DataManager.getInstance().regist(userName, password)
-                .compose(RxSchedulers.<ResponseData<UserData>>applySchedulers())
+
                 .subscribe(new Consumer<ResponseData<UserData>>() {
                     @Override
                     public void accept(ResponseData<UserData> userDataResponseData) throws Exception {

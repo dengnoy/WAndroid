@@ -4,6 +4,8 @@ import java.util.List;
 
 import example.hp.wandroid.base.BaseView;
 import example.hp.wandroid.bean.Article;
+import example.hp.wandroid.bean.FavArticle;
+import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
 import example.hp.wandroid.model.actual.DbHelperActual;
@@ -88,5 +90,15 @@ public class DataManager implements DbHelper, SfHelper, NetHelper {
     @Override
     public Observable<ResponseData<UserData>> regist(String userName, String passWord) {
         return mNetHelper.regist(userName, passWord);
+    }
+
+    @Override
+    public Observable<ResponseData<FavArticle>> getFavArticle(int page) {
+        return mNetHelper.getFavArticle(page);
+    }
+
+    @Override
+    public Observable<ResponseData<List<KnowledgeHierarchy>>> loadKnowledgeHierarchyData() {
+        return mNetHelper.loadKnowledgeHierarchyData();
     }
 }

@@ -54,7 +54,7 @@ public class LoginActivity extends BaseActivityWithMvp<Contract.LoginPresenter> 
         mUserPassword = mEtPsd.getText().toString().trim();
 
         if (!inputCheck()) {
-            Util.shortToast("用户或密码错误，重试");
+            Util.shortToast("用户或密码错误格式，重试");
             return;
         }
         switch (view.getId()) {
@@ -114,7 +114,7 @@ public class LoginActivity extends BaseActivityWithMvp<Contract.LoginPresenter> 
         DataManager.getInstance().saveUserName(userData.getName());
         DataManager.getInstance().saveUserPW(userData.getPassword());
         // 保存用户头像资源
-        Log.d("=========", userData.getName());
+
         Util.shortToast("登录成功");
 
         finish();
