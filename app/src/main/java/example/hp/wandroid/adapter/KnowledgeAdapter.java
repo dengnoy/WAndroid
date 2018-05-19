@@ -11,7 +11,8 @@ import java.util.List;
 import example.hp.wandroid.R;
 import example.hp.wandroid.base.BaseAdapter;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
-import example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail.KnowledgeActivity;
+
+import example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail.KnowledgeDetailActivity;
 
 public class KnowledgeAdapter extends BaseQuickAdapter {
 
@@ -21,7 +22,7 @@ public class KnowledgeAdapter extends BaseQuickAdapter {
         setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                KnowledgeActivity.startIt(view.getContext(), null);
+                KnowledgeDetailActivity.startIt(view.getContext(), null);
             }
         });
 
