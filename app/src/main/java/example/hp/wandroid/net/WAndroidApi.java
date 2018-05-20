@@ -6,6 +6,8 @@ import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.bean.Banner;
 import example.hp.wandroid.bean.FavArticle;
 import example.hp.wandroid.bean.Hotkey;
+import example.hp.wandroid.bean.KnowledgeArticle;
+import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
@@ -53,8 +55,8 @@ public interface WAndroidApi {
 
 
     //体系下的文章  从0页开始
-    @GET("/article/list/{page}/json?cid={id}")
-    Observable hierarchyArticle(@Path("page")int page,@Path("id") int id);
+    @GET("/article/list/{page}/json")
+    Observable<ResponseData<KnowledgeDetail>> loadKnowledgeArticles(@Path("page")int page, @Query("cid") int cid);
 
     // 导航数据
     @GET("/navi/json")

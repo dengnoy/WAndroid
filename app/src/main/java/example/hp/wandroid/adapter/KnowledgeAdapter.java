@@ -22,7 +22,7 @@ public class KnowledgeAdapter extends BaseQuickAdapter {
         setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                KnowledgeDetailActivity.startIt(view.getContext(), null);
+                KnowledgeDetailActivity.startIt(view.getContext(), ((KnowledgeHierarchy) adapter.getItem(position)).getChildren());
             }
         });
 

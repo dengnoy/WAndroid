@@ -4,6 +4,8 @@ import java.util.List;
 
 import example.hp.wandroid.base.BaseView;
 import example.hp.wandroid.bean.FavArticle;
+import example.hp.wandroid.bean.KnowledgeArticle;
+import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
@@ -44,6 +46,12 @@ public class NetHelperActurl implements NetHelper {
     public Observable<ResponseData<List<KnowledgeHierarchy>>> loadKnowledgeHierarchyData() {
         return RetrofitManager.Api().loadKnowledgeHierarchyDaga()
                 .compose(RxSchedulers.<ResponseData<List<KnowledgeHierarchy>>>applySchedulers());
+    }
+
+    @Override
+    public Observable<ResponseData<KnowledgeDetail>> loadKnowledgeArticles(int page, int cid) {
+        return RetrofitManager.Api().loadKnowledgeArticles(page, cid)
+                .compose(RxSchedulers.<ResponseData<KnowledgeDetail>>applySchedulers());
     }
 
 

@@ -66,6 +66,7 @@ public class MainFragment extends BaseFragment<HomePresenter> implements Contrac
 
         setupRecyclerView();  //设置recycler相关
         loadMore(mCurrentPage++);
+
     }
 
     @Override

@@ -5,6 +5,8 @@ import java.util.List;
 import example.hp.wandroid.base.BaseView;
 import example.hp.wandroid.bean.Article;
 import example.hp.wandroid.bean.FavArticle;
+import example.hp.wandroid.bean.KnowledgeArticle;
+import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
@@ -100,5 +102,10 @@ public class DataManager implements DbHelper, SfHelper, NetHelper {
     @Override
     public Observable<ResponseData<List<KnowledgeHierarchy>>> loadKnowledgeHierarchyData() {
         return mNetHelper.loadKnowledgeHierarchyData();
+    }
+
+    @Override
+    public Observable<ResponseData<KnowledgeDetail>> loadKnowledgeArticles(int page, int cid) {
+        return mNetHelper.loadKnowledgeArticles(page, cid);
     }
 }

@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+import example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail.KnowledgeDetailActivity;
 import example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail.KnowledgedetailFragment;
 
 public class KnowledgeDetailPagerAdapter extends FragmentPagerAdapter {
@@ -25,18 +26,18 @@ public class KnowledgeDetailPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return KnowledgedetailFragment.getInstance();
+        return KnowledgedetailFragment.getInstance(position);
     }
 
     // the count of pages
     @Override
     public int getCount() {
-        return 3;
+        return KnowledgeDetailActivity.mDataList.size();
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        return titles.get(position);
+        return KnowledgeDetailActivity.mDataList.get(position).getName();
     }
 }
