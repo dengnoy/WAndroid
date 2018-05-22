@@ -1,9 +1,12 @@
 package example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -20,6 +23,7 @@ import example.hp.wandroid.bean.KnowledgeArticle;
 import example.hp.wandroid.util.Util;
 
 public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresenter> implements Contract.KnowledgeDetailView {
+    public String TAG = "KnowledgedetailFragment";
     SmartRefreshLayout mSmartRefreshLayout;
     RecyclerView mRecyclerView;
     BaseQuickAdapter mAdapter;
@@ -30,6 +34,7 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
     public static KnowledgedetailFragment getInstance(int position) {
         KnowledgedetailFragment f = new KnowledgedetailFragment();
         f.mPosition = position;
+        f.TAG += position;
         return f;
     }
 
@@ -40,7 +45,7 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
 
     @Override
     public void initViews(View v) {
-        super.initViews(v);
+
         mSmartRefreshLayout = v.findViewById(R.id.knowledge_smartrefreshlayout);
         mRecyclerView = v.findViewById(R.id.knowledge_detail_rv);
         mPresenter = new KnowledgeDetailPresenter();
@@ -52,7 +57,7 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());  //TODO  怎么传递cid呢？
+     //   loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());  //TODO  怎么传递cid呢？
     }
 
     private void loadDatas(int page, int cid) {
@@ -85,4 +90,65 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
 
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.d(TAG, "onAttach");
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onAttach");
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Log.d(TAG, "onAttach");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d(TAG, "onStart");
+        mCurPage = 0;
+        loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.d(TAG, "onStop");
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        Log.d(TAG, "onLowMemory");
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Log.d(TAG, "onDestroyView");
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Log.d(TAG, "onDestroy");
+    }
 }

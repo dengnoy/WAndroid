@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import example.hp.wandroid.MyApp;
+
 public abstract class BaseFragment<T extends Contract.IPresenter> extends Fragment implements BaseView {
     private View mContentView;
     public T mPresenter;
@@ -23,9 +25,7 @@ public abstract class BaseFragment<T extends Contract.IPresenter> extends Fragme
     }
 
 
-    public void initViews(View v) {
-
-    }
+    public abstract void initViews(View v) ;
 
     @Override
     public void onSuccess(List newDatas) {
@@ -68,6 +68,11 @@ public abstract class BaseFragment<T extends Contract.IPresenter> extends Fragme
 
     protected abstract int getLayoutId();
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MyApp.getRefWatcher().watch(this);
+    }
 
     @Override
     public void onDetach() {

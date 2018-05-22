@@ -8,6 +8,7 @@ import example.hp.wandroid.bean.FavArticle;
 import example.hp.wandroid.bean.KnowledgeArticle;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
+import example.hp.wandroid.bean.NavigationClassify;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
 import example.hp.wandroid.model.actual.DbHelperActual;
@@ -107,5 +108,10 @@ public class DataManager implements DbHelper, SfHelper, NetHelper {
     @Override
     public Observable<ResponseData<KnowledgeDetail>> loadKnowledgeArticles(int page, int cid) {
         return mNetHelper.loadKnowledgeArticles(page, cid);
+    }
+
+    @Override
+    public Observable<ResponseData<List<NavigationClassify>>> getNavigationData() {
+        return mNetHelper.getNavigationData();
     }
 }

@@ -15,7 +15,7 @@ public class KnowledgeArticle {
     private boolean fresh;
     private int id;
     private String link;
-    private String nicedate;
+    private String niceDate;
     private String origin;
     private String projectlink;
     private int publishtime;
@@ -41,7 +41,7 @@ public class KnowledgeArticle {
         this.fresh = fresh;
         this.id = id;
         this.link = link;
-        this.nicedate = nicedate;
+        this.niceDate = nicedate;
         this.origin = origin;
         this.projectlink = projectlink;
         this.publishtime = publishtime;
@@ -144,11 +144,11 @@ public class KnowledgeArticle {
     }
 
     public String getNicedate() {
-        return nicedate;
+        return niceDate;
     }
 
     public void setNicedate(String nicedate) {
-        this.nicedate = nicedate;
+        this.niceDate = nicedate;
     }
 
     public String getOrigin() {

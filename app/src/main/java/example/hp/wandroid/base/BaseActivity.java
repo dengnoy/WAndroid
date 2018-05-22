@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import example.hp.wandroid.MyApp;
 import example.hp.wandroid.R;
 import example.hp.wandroid.ui.login.LoginActivity;
 
@@ -56,5 +57,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         mUnBinder.unbind();
+        MyApp.getRefWatcher().watch(this);
     }
 }

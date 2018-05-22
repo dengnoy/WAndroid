@@ -9,6 +9,7 @@ import example.hp.wandroid.bean.Hotkey;
 import example.hp.wandroid.bean.KnowledgeArticle;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
+import example.hp.wandroid.bean.NavigationClassify;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
 import retrofit2.http.Field;
@@ -60,7 +61,7 @@ public interface WAndroidApi {
 
     // 导航数据
     @GET("/navi/json")
-    Observable getNavigationData();
+    Observable<ResponseData<List<NavigationClassify>>> getNavigationData();
 
 
     //项目分类

@@ -27,6 +27,7 @@ import example.hp.wandroid.ui.fav.FavActivity;
 import example.hp.wandroid.ui.login.LoginActivity;
 import example.hp.wandroid.ui.main.MainFragment;
 import example.hp.wandroid.ui.knowledgehierarchy.KnowledgeHierarchyFragment;
+import example.hp.wandroid.ui.navigation.NavigationFragment;
 import example.hp.wandroid.util.Util;
 
 public class MainActivity extends BaseActivityWithMvp implements View.OnClickListener {
@@ -43,6 +44,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
 
     // private String mUserInfo = "Frank";  //用户信息内容   //用户信息应该作为应用全局使用  //TODO
 
+
     @Override
     public int getLayoutRes() {
         return R.layout.activity_main;
@@ -51,7 +53,6 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
     @Override
     public void initViews() {
         initFragments();
-
 
         mDrawer = findViewById(R.id.main_drawer);
         mToolBarTV = findViewById(R.id.toolbar_tv);
@@ -96,6 +97,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
             }
         });
         mExitItem = mNavView.getMenu().getItem(3);  //获取退出按钮
+
         mBottomNav = findViewById(R.id.main_bottom_nav);
         mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -109,6 +111,9 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
                     case R.id.main_menu_bottom_knowledge:
                         switchFragment(2);
 
+                        break;
+                    case R.id.main_menu_bottom_daohang:
+                        switchFragment(3);
                         break;
                 }
                 return true;
@@ -140,7 +145,8 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
 
         if (actionbar != null) {
             actionbar.setDisplayHomeAsUpEnabled(true);
-            //    actionbar.setHomeAsUpIndicator(R.drawable.drawer);
+            //actionbar.setHomeAsUpIndicator(R.drawable.drawer);
+
 
         }
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -153,9 +159,10 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
     }
 
     private void initFragments() {
-        mFragments = new Fragment[2];
+        mFragments = new Fragment[3];
         mFragments[0] = new MainFragment();
         mFragments[1] = new KnowledgeHierarchyFragment();
+        mFragments[2] = new NavigationFragment();
 
         switchFragment(1);
     }
@@ -165,7 +172,7 @@ public class MainActivity extends BaseActivityWithMvp implements View.OnClickLis
             return;
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (mFragments[index - 1].getActivity() == null) {
-            Log.d("debug+++++++++", "fragment's activity is null");   //fragment还没添加
+           // Log.d("debug+++++++++", "fragment's activity is null");   //fragment还没添加
             transaction.add(R.id.container, mFragments[index - 1]);
         }
         for (int a = 0; a < mFragments.length; a++) {
