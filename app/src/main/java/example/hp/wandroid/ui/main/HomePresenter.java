@@ -4,13 +4,11 @@ import android.util.Log;
 
 import java.util.List;
 
-import example.hp.wandroid.base.BasePresenter;
 import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.bean.Banner;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.net.RetrofitManager;
 import example.hp.wandroid.net.WAndroidApi;
-import example.hp.wandroid.util.Mock;
 import example.hp.wandroid.util.RxSchedulers;
 import io.reactivex.functions.Consumer;
 

@@ -1,7 +1,5 @@
 package example.hp.wandroid.util;
 
-import example.hp.wandroid.bean.ArticleList;
-import example.hp.wandroid.bean.ResponseData;
 import io.reactivex.Observable;
 import io.reactivex.ObservableSource;
 import io.reactivex.ObservableTransformer;

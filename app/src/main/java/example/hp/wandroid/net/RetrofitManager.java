@@ -15,11 +15,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 这个类主要对RetrofitClient进行配置
 
  */
+@SuppressWarnings("JavaDoc")
 public class RetrofitManager {
     private static RetrofitManager sInstance;
     private Retrofit mClient;
     private final String sBaseUrl = ApiConstant.sBaseUrl;
-    private OkHttpClient mOkHttpClient = null;
+    private OkHttpClient mOkHttpClient;
 
     private static final long READ_TIMEOUT = 50;
     private static final long WRITE_TIMEOUT = 50;

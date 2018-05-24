@@ -5,11 +5,12 @@ import java.util.List;
 import example.hp.wandroid.base.BaseView;
 import example.hp.wandroid.bean.Article;
 import example.hp.wandroid.bean.FavArticle;
-import example.hp.wandroid.bean.KnowledgeArticle;
+import example.hp.wandroid.bean.Hotkey;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.NavigationClassify;
 import example.hp.wandroid.bean.ResponseData;
+import example.hp.wandroid.bean.SearchArticleList;
 import example.hp.wandroid.bean.UserData;
 import example.hp.wandroid.model.actual.DbHelperActual;
 import example.hp.wandroid.model.actual.NetHelperActurl;
@@ -113,5 +114,15 @@ public class DataManager implements DbHelper, SfHelper, NetHelper {
     @Override
     public Observable<ResponseData<List<NavigationClassify>>> getNavigationData() {
         return mNetHelper.getNavigationData();
+    }
+
+    @Override
+    public Observable<ResponseData<List<Hotkey>>> getHotkey() {
+        return mNetHelper.getHotkey();
+    }
+
+    @Override
+    public Observable<ResponseData<SearchArticleList>> searchKey(int page, String key) {
+        return mNetHelper.searchKey(page, key);
     }
 }

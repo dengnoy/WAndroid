@@ -1,10 +1,8 @@
 package example.hp.wandroid.ui.main;
 
-import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,19 +16,15 @@ import com.youth.banner.BannerConfig;
 import com.youth.banner.listener.OnBannerClickListener;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.HomeAdapter;
 import example.hp.wandroid.base.BaseFragment;
 import example.hp.wandroid.bean.Article;
-import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.ui.WebActivity;
 import example.hp.wandroid.util.ImageLoader;
-import example.hp.wandroid.util.Mock;
-import example.hp.wandroid.util.Util;
+import example.hp.wandroid.util.ToastUtil;
 
 public class MainFragment extends BaseFragment<HomePresenter> implements Contract.HomeView {
     public RecyclerView mRecyclerView;
@@ -65,8 +59,14 @@ public class MainFragment extends BaseFragment<HomePresenter> implements Contrac
         mPresenter = new HomePresenter();
 
         setupRecyclerView();  //设置recycler相关
-        loadMore(mCurrentPage++);
 
+
+    }
+
+    @Override
+    protected void initDatas() {
+        loadMore(mCurrentPage++);
+        mPresenter.getBanner();
     }
 
     @Override
@@ -96,12 +96,13 @@ public class MainFragment extends BaseFragment<HomePresenter> implements Contrac
             @Override
             public boolean onItemLongClick(BaseQuickAdapter adapter, View view, int position) {
                 Article item = (Article) adapter.getItem(position);//TODO  不合理
-                item.save();
-                Util.shortToast("已收藏");
+              //  item.save();
+              //  ToastUtil.shortToast("已收藏");
                 return true;
             }
         });
-        mPresenter.getBanner();
+
+
 
 
     }

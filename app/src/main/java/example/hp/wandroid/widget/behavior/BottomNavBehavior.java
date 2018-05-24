@@ -6,9 +6,10 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
-import android.view.View;
+import android.util.Log;
 
 public class BottomNavBehavior<View> extends CoordinatorLayout.Behavior {
+    private final String  TAG=BottomNavBehavior.class.getSimpleName();
     private ObjectAnimator mAnimator;
     private boolean isUp;
 
@@ -25,7 +26,9 @@ public class BottomNavBehavior<View> extends CoordinatorLayout.Behavior {
     @Override
     public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull android.view.View child, @NonNull android.view.View target, int dx, int dy, @NonNull int[] consumed, int type) {
         //上滑
-        if (dy > 5) {
+
+        Log.d(TAG,"dy : "+dy+"  | isUp : "+isUp);
+        if (dy > 1) {
             if (mAnimator == null || !isUp)
                 mAnimator = ObjectAnimator.ofFloat(child, "translationY", 0, child.getHeight());
             if (!mAnimator.isRunning() && child.getTranslationY() <=0) {

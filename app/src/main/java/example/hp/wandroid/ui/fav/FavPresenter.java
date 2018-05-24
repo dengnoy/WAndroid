@@ -7,8 +7,6 @@ import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.model.DataManager;
 import io.reactivex.functions.Consumer;
 
-import static example.hp.wandroid.model.DataManager.getInstance;
-
 public class FavPresenter extends Contract.FavPresenter<Contract.FavView> {
 
     @Override

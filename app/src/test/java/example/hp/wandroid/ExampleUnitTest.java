@@ -13,11 +13,10 @@ import static org.junit.Assert.*;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 public class ExampleUnitTest {
-    private String TAG;
 
     @Test
     public void addition_isCorrect() {
-        TAG = getClass().getSimpleName();
+        String TAG = getClass().getSimpleName();
         Map test = new ConcurrentHashMap<String, String>();
         test.put("a", "aaaaa");
         test.put("b", "bbbbb");

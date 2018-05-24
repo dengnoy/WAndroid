@@ -1,12 +1,8 @@
 package example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail;
 
-import java.util.List;
-
-import example.hp.wandroid.bean.KnowledgeArticle;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.model.DataManager;
-import example.hp.wandroid.util.Mock;
 import io.reactivex.functions.Consumer;
 
 public class KnowledgeDetailPresenter extends Contract.KnowledgeDetailPresernter<Contract.KnowledgeDetailView> {

@@ -12,10 +12,8 @@ import java.util.List;
 import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.KnowledgeAdapter;
 
-import example.hp.wandroid.base.BaseAdapter;
 import example.hp.wandroid.base.BaseFragment;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
-import example.hp.wandroid.util.Mock;
 
 public class KnowledgeHierarchyFragment extends BaseFragment<Constract.KnowledgePresenter> implements Constract.KnowledgeView {
 
@@ -39,9 +37,14 @@ public class KnowledgeHierarchyFragment extends BaseFragment<Constract.Knowledge
         mPresenter = new KnowledgeHierarchyPresenter();
         setUpRecyclerView();
 
+
+
+
+    }
+
+    @Override
+    protected void initDatas() {
         loadKnowledgeHierarchyData();
-
-
     }
 
     private void setUpRecyclerView() {

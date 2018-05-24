@@ -1,7 +1,5 @@
 package example.hp.wandroid.base;
 
-import android.view.View;
-
 import java.util.List;
 
 public interface BaseView extends Contract.IView {

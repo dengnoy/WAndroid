@@ -44,6 +44,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.login.LoginActivity" />
         <activity android:name=".ui.knowledgehierarchy.knowledgedetail.KnowledgeDetailActivity" />
+        <activity android:name=".ui.search.SearchActivity" />
     </application>
 
 </manifest>

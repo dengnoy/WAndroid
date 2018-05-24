@@ -2,15 +2,9 @@ package example.hp.wandroid.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Toast;
 
 import java.util.List;
-
-import example.hp.wandroid.R;
 
 public abstract class BaseActivityWithMvp<T extends Contract.IPresenter> extends BaseActivity implements BaseView {
     private Toolbar mToolBar = null;

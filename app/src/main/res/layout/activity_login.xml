@@ -9,7 +9,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:layout_marginBottom="40dp"/>
+        android:layout_marginBottom="40dp" />
 
 
     <LinearLayout
@@ -65,24 +65,49 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/dp_4"
+
+        >
+
+        <CheckBox
+            android:id="@+id/login_page_autologin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自动登录" />
+
+        <CheckBox
+            android:id="@+id/login_page_remenberpassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="记住密码" />
+
+        <TextView
+            android:id="@+id/login_regist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="注册帐号"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
+        android:layout_marginHorizontal="60dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/login_login"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="登录"
 
             />
 
-        <Button
-            android:id="@+id/login_regist"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="注册"
-
-            />
 
     </LinearLayout>
 

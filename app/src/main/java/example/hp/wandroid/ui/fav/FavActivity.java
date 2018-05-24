@@ -7,7 +7,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -16,12 +15,8 @@ import java.util.List;
 
 import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.FavAdapter;
-import example.hp.wandroid.base.BaseActivity;
 import example.hp.wandroid.base.BaseActivityWithMvp;
-import example.hp.wandroid.bean.Article;
-import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.bean.FavArticle;
-import example.hp.wandroid.ui.WebActivity;
 
 public class FavActivity extends BaseActivityWithMvp<FavPresenter> implements Contract.FavView {
 

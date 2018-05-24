@@ -3,19 +3,16 @@ package example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail;
 import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
-import android.view.View;
 
 import java.util.List;
 
 import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.KnowledgeDetailPagerAdapter;
 import example.hp.wandroid.base.BaseActivity;
-import example.hp.wandroid.base.BaseActivityWithMvp;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 
 public class KnowledgeDetailActivity extends BaseActivity {

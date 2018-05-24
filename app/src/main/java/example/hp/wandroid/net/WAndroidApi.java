@@ -6,11 +6,11 @@ import example.hp.wandroid.bean.ArticleList;
 import example.hp.wandroid.bean.Banner;
 import example.hp.wandroid.bean.FavArticle;
 import example.hp.wandroid.bean.Hotkey;
-import example.hp.wandroid.bean.KnowledgeArticle;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.NavigationClassify;
 import example.hp.wandroid.bean.ResponseData;
+import example.hp.wandroid.bean.SearchArticleList;
 import example.hp.wandroid.bean.UserData;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -90,7 +90,7 @@ public interface WAndroidApi {
 
     //搜索
     @POST("article/query/{page}/json")
-    Observable search(@Path("page") int page, @Query("k") String key);
+    Observable<ResponseData<SearchArticleList>> searchKey(@Path("page") int page, @Query("k") String key);
 
     //编辑收藏网址
 

@@ -3,8 +3,7 @@ package example.hp.wandroid.ui.login;
 import example.hp.wandroid.bean.ResponseData;
 import example.hp.wandroid.bean.UserData;
 import example.hp.wandroid.model.DataManager;
-import example.hp.wandroid.util.RxSchedulers;
-import example.hp.wandroid.util.Util;
+import example.hp.wandroid.util.ToastUtil;
 import io.reactivex.functions.Consumer;
 
 public class LoginPresenter extends Contract.LoginPresenter<Contract.LoginView> {
@@ -17,7 +16,7 @@ public class LoginPresenter extends Contract.LoginPresenter<Contract.LoginView> 
                     public void accept(ResponseData<UserData> userDataResponseData) throws Exception {
                         if (userDataResponseData.getErrorCode() == 0)
                             mView.notifyLogined(userDataResponseData.getData());
-                        else Util.shortToast("登录错误");
+                        else ToastUtil.shortToast("登录错误");
 
                     }
                 });

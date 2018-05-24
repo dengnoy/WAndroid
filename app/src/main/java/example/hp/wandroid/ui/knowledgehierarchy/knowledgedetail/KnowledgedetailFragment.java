@@ -20,7 +20,7 @@ import example.hp.wandroid.R;
 import example.hp.wandroid.adapter.KnowledgeDetailAdapter;
 import example.hp.wandroid.base.BaseFragment;
 import example.hp.wandroid.bean.KnowledgeArticle;
-import example.hp.wandroid.util.Util;
+import example.hp.wandroid.util.ToastUtil;
 
 public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresenter> implements Contract.KnowledgeDetailView {
     public String TAG = "KnowledgedetailFragment";
@@ -48,16 +48,22 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
 
         mSmartRefreshLayout = v.findViewById(R.id.knowledge_smartrefreshlayout);
         mRecyclerView = v.findViewById(R.id.knowledge_detail_rv);
-        mPresenter = new KnowledgeDetailPresenter();
         setupAdapter();
 
-
+        mPresenter = new KnowledgeDetailPresenter();
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        mCurPage = 0;
         super.onActivityCreated(savedInstanceState);
-     //   loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());  //TODO  怎么传递cid呢？
+
+    }
+
+    @Override
+    protected void initDatas() {
+        loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());
+
     }
 
     private void loadDatas(int page, int cid) {
@@ -86,69 +92,9 @@ public class KnowledgedetailFragment extends BaseFragment<KnowledgeDetailPresent
     public void updateKnowledgeDetail(List<KnowledgeArticle> datas) {
         if (datas != null && datas.size() > 0)
             mAdapter.addData(datas);
-        else Util.shortToast("没有更多数据");
+        else ToastUtil.shortToast("没有更多数据");
 
     }
 
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.d(TAG, "onAttach");
-    }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.d(TAG, "onAttach");
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Log.d(TAG, "onAttach");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart");
-        mCurPage = 0;
-        loadDatas(mCurPage, KnowledgeDetailActivity.mDataList.get(mPosition).getId());
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume");
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause");
-    }
-
-    @Override
-    public void onStop() {
-        super.onStop();
-        Log.d(TAG, "onStop");
-    }
-
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        Log.d(TAG, "onLowMemory");
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d(TAG, "onDestroyView");
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy");
-    }
 }

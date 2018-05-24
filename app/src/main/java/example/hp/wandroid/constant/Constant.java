@@ -9,4 +9,7 @@ public class Constant {
 
     public static final String COOKIE_SFFILE_NAME="cookies_sf";//cookies SF文件名字
 
+    public static final String KEY_FOR_IS_AUTOLOGIN="key_isAutoLogin";   //是否自动登录
+    public static final String KEY_FOR_IS_REMENBER_PASSWORD="key_remenberPassWord"; //是否记住密码和用户名 ，自动填写
+
 }

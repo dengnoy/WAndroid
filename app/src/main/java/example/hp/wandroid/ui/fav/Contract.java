@@ -5,7 +5,6 @@ import java.util.List;
 import example.hp.wandroid.base.BasePresenter;
 import example.hp.wandroid.base.BaseView;
 
-import example.hp.wandroid.bean.Article;
 import example.hp.wandroid.bean.FavArticle;
 
 public interface Contract {

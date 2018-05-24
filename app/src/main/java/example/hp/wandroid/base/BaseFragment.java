@@ -21,11 +21,40 @@ public abstract class BaseFragment<T extends Contract.IPresenter> extends Fragme
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         mContentView = inflater.inflate(getLayoutId(), container, false);
+        initViews(mContentView);
         return mContentView;
     }
 
 
-    public abstract void initViews(View v) ;
+    public abstract void initViews(View v);
+
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+
+        if (mPresenter != null)
+            mPresenter.Attach(this);
+
+        initDatas();
+        super.onActivityCreated(savedInstanceState);
+    }
+
+    protected abstract void initDatas();
+
+    protected abstract int getLayoutId();
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        MyApp.getRefWatcher().watch(this);
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        if (mPresenter != null)
+            mPresenter.deAtach();
+    }
 
     @Override
     public void onSuccess(List newDatas) {
@@ -55,30 +84,6 @@ public abstract class BaseFragment<T extends Contract.IPresenter> extends Fragme
     @Override
     public void showNoNet(String msg) {
 
-    }
-
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        initViews(mContentView);
-        if (mPresenter != null)
-            mPresenter.Attach(this);
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    protected abstract int getLayoutId();
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        MyApp.getRefWatcher().watch(this);
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        if (mPresenter != null)
-            mPresenter.deAtach();
     }
 
 }

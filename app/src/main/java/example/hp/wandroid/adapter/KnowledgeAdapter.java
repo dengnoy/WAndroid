@@ -9,7 +9,6 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import java.util.List;
 
 import example.hp.wandroid.R;
-import example.hp.wandroid.base.BaseAdapter;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 
 import example.hp.wandroid.ui.knowledgehierarchy.knowledgedetail.KnowledgeDetailActivity;

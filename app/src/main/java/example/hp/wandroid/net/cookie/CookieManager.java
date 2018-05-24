@@ -1,13 +1,8 @@
 package example.hp.wandroid.net.cookie;
 
 import android.support.annotation.NonNull;
-import android.text.TextUtils;
-import android.util.Log;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import okhttp3.Cookie;
 import okhttp3.HttpUrl;

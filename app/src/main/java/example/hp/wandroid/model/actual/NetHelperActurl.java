@@ -4,17 +4,17 @@ import java.util.List;
 
 import example.hp.wandroid.base.BaseView;
 import example.hp.wandroid.bean.FavArticle;
-import example.hp.wandroid.bean.KnowledgeArticle;
+import example.hp.wandroid.bean.Hotkey;
 import example.hp.wandroid.bean.KnowledgeDetail;
 import example.hp.wandroid.bean.KnowledgeHierarchy;
 import example.hp.wandroid.bean.NavigationClassify;
 import example.hp.wandroid.bean.ResponseData;
+import example.hp.wandroid.bean.SearchArticleList;
 import example.hp.wandroid.bean.UserData;
 import example.hp.wandroid.model.helper.NetHelper;
 import example.hp.wandroid.net.RetrofitManager;
 import example.hp.wandroid.util.RxSchedulers;
 import io.reactivex.Observable;
-import io.reactivex.functions.Consumer;
 
 public class NetHelperActurl implements NetHelper {
     @Override
@@ -57,8 +57,18 @@ public class NetHelperActurl implements NetHelper {
 
     @Override
     public Observable<ResponseData<List<NavigationClassify>>> getNavigationData() {
-        return  RetrofitManager.Api().getNavigationData()
+        return RetrofitManager.Api().getNavigationData()
                 .compose(RxSchedulers.<ResponseData<List<NavigationClassify>>>applySchedulers());
+    }
+
+    @Override
+    public Observable<ResponseData<List<Hotkey>>> getHotkey() {
+        return RetrofitManager.Api().getHotkey().compose(RxSchedulers.<ResponseData<List<Hotkey>>>applySchedulers());
+    }
+
+    @Override
+    public Observable<ResponseData<SearchArticleList>> searchKey(int page, String key) {
+        return RetrofitManager.Api().searchKey(page, key).compose(RxSchedulers.<ResponseData<SearchArticleList>>applySchedulers());
     }
 
 

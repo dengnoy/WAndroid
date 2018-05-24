@@ -1,9 +1,5 @@
 package example.hp.wandroid.bean;
 
-import com.google.gson.annotations.Expose;
-
-import org.litepal.crud.DataSupport;
-
 import java.util.List;
 
 public class ArticleList {
